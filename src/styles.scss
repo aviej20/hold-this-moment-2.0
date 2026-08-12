@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
-$background: #FFF;
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap");
+$background: #fff;
 $primary-color: #13aa65;
 $secondary-color: #70ca70;
 
@@ -16,77 +16,81 @@ body {
   background-color: $background;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Lexend Deca', 'Arial', sans-serif;
+  font-family: "Lexend Deca", "Arial", sans-serif;
   color: $primary-color;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
-.splash-container{
+.splash-container {
   background-color: $background;
   width: 100%;
   height: 100%;
   position: fixed;
   inset: 0;
-  .splash{
+  .splash {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     position: relative;
-      top: 50%;
-       &__text{
+    top: 50%;
+    &__text {
       font-size: 3rem;
       opacity: 0;
       transition: opacity 0.6s ease;
       text-align: center;
-    &.show{
-      opacity: 1;
+      &.show {
+        opacity: 1;
+      }
     }
-  }
-  .btn--skip{
-   margin: 0 auto;
-   padding: .5rem;
-   text-align: center;
-   font-size: 2rem;
-   opacity: 0;
-   transform: translateY(10px);
-  transition: opacity 0.6s ease;
-   &.show{
-    opacity: 1;
-    transform: translateY(0);
-   }
-   &:hover{
-    cursor: pointer;
-   }
-  }
+    .btn--skip {
+      margin: 0 auto;
+      padding: 0.5rem;
+      text-align: center;
+      font-size: 2rem;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.6s ease;
+      &.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 }
 
-.btn{
-          font-size: 1.15rem;
-          border: 2px $primary-color solid;
-          border-radius: .5rem;
-          margin: 1rem;
-          background-color: $primary-color;
-          color: $background;
-          font-weight: 500;
-          padding: .5rem 1rem;
-          width: fit-content;
-          transition: 0.3s;
-          &:hover{
-            box-shadow: -3px 4px 0px 1px $secondary-color; 
--webkit-box-shadow: -3px 4px 0px 1px $secondary-color;
--moz-box-shadow: -3px 4px 0px 1px $secondary-color;
-            cursor: pointer;
-          }
-        }
+.btn-group {
+  display: flex;
+}
 
-.grid-wrapper{
+.btn {
+  font-size: 1.15rem;
+  border: 2px $primary-color solid;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  background-color: $primary-color;
+  color: $background;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  transition: 0.3s;
+  &:hover {
+    box-shadow: -3px 4px 0px 1px $secondary-color;
+    -webkit-box-shadow: -3px 4px 0px 1px $secondary-color;
+    -moz-box-shadow: -3px 4px 0px 1px $secondary-color;
+    cursor: pointer;
+  }
+}
+
+.grid-wrapper {
   width: 100%;
   height: 100vh;
   display: grid;
@@ -96,92 +100,93 @@ body {
   column-gap: 1rem;
   overflow: hidden;
 
-  > *{
+  > * {
     width: 100%;
   }
 
-  .nav-container{
-          grid-column: 1/2;
-      grid-row: 1/4;
-      .nav__hamburger{
-           appearance: none;
-          -webkit-appearance: none;
+  .nav-container {
+    grid-column: 1/2;
+    grid-row: 1/4;
+    .nav__hamburger {
+      appearance: none;
+      -webkit-appearance: none;
 
-          background: none;
-          border: none;
-          padding: 0;
-          margin: 0;
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-          gap: 5px;
-          padding-top: 2rem;
-          position: relative;
-          overflow: hidden;
-        &::before{
-          content: "";
-          position: absolute;
-          inset: 0;
-          background: $primary-color;
-          transform: translateX(-100%);
-          transition: transform 0.3s ease;
-          z-index: 1;
-        }
-        .bar{
-           position: relative;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      gap: 5px;
+      padding-top: 2rem;
+      position: relative;
+      overflow: hidden;
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: $primary-color;
+        border-right: $secondary-color 5px solid;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 1;
+      }
+      .bar {
+        position: relative;
         z-index: 2;
-          display: block;
-            width: 25px;
-            height: 3px;
-            background-color: $primary-color;
-            transition: all 0.3s ease;
-        }
-        &--active{
-          .bar{
-            background-color: $background;
-          &:nth-child(1){
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: $primary-color;
+        transition: all 0.3s ease;
+      }
+      &--active {
+        .bar {
+          background-color: $background;
+          &:nth-child(1) {
             transform: rotate(45deg) translate(5px, 5px);
           }
-          &:nth-child(2){
+          &:nth-child(2) {
             opacity: 0;
           }
-          &:nth-child(3){
+          &:nth-child(3) {
             transform: rotate(-45deg) translate(6px, -6px);
           }
         }
-        &::before{
+        &::before {
           transform: translateX(0);
         }
-        }
       }
-    .nav__menu{
+    }
+    .nav__menu {
       padding: 3rem 0 0 1.5rem;
       background-color: $primary-color;
-  display: flex;
-  height: 100%;
-  font-size: 2rem;
-  gap: 2rem;
-  flex-direction: column;
-  list-style: none;
-  transition: 0.3s ease;
-  position: relative;
-  inset: 0;
-  transition: transform 0.3s ease;
-  transform: translateX(-100%);
-  a{
-    color: $background;
-  }
-  &--active{
-  transform: translateX(0);
-  }
+      border-right: $secondary-color 5px solid;
+      display: flex;
+      height: 100%;
+      font-size: 2rem;
+      gap: 2rem;
+      flex-direction: column;
+      list-style: none;
+      transition: 0.3s ease;
+      position: relative;
+      inset: 0;
+      transition: transform 0.3s ease;
+      transform: translateX(-100%);
+      a {
+        color: $background;
+      }
+      &--active {
+        transform: translateX(0);
+      }
     }
   }
 
-
-.resources-container{
+  .resources-container {
     grid-column: 3/4;
     grid-row: 1/2;
     display: flex;
@@ -189,129 +194,159 @@ body {
     justify-content: space-evenly;
     align-items: center;
     padding: 1.5rem 0;
-    svg{
+    svg {
       cursor: pointer;
       size: 1.75rem;
     }
   }
 
-
-.main-container{
-  grid-column: 2/3;
+  .main-container {
+    grid-column: 2/3;
     grid-row: 2/3;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     width: 100%;
-  .main__header{
+    min-height: 500px;
+    .main__header {
       margin: 1rem;
       display: flex;
       flex-direction: column;
       width: fit-content;
       align-self: center;
       margin-right: 40%;
-      h1{
+      h1 {
         font-size: 3rem;
         font-weight: 400;
       }
-      h2{
+      h2 {
         font-size: 1.5rem;
         text-align: right;
         font-weight: 200;
       }
     }
-    .main__chat{
-  display: flex;
-  height: 100%;
+    .main__chat {
+      display: flex;
+      height: 100%;
 
-   &--grid.main__chat{
-    display: grid;
-  grid-template-rows: 2fr 1fr;
-  gap: 2rem;
-  margin-bottom: 1rem;
+      &--grid.main__chat {
+        display: grid;
+        grid-template-rows: 2fr 1fr;
+        gap: 2rem;
+        margin-bottom: 1rem;
 
-    .chat__input{
-      #chat-input__form{
-        #user-input{
-          width: 75%;
+        .chat__input {
+          #chat-input__form {
+            #user-input {
+              width: 75%;
+            }
+          }
+        }
+      }
+      .chat__window {
+        display: flex;
+        flex-direction: column;
+        border: 3px solid #13aa65;
+        border-radius: 1rem;
+        margin: 1rem;
+        padding: 1.5rem 3rem;
+        min-height: 0;
+        overflow-y: auto;
+        box-shadow: -4px 4px 0px 1px $primary-color;
+        -webkit-box-shadow: -4px 4px 0px 1px $primary-color;
+        -moz-box-shadow: -4px 4px 0px 1px $primary-color;
+        .message {
+          margin: 0.5rem 0;
+          max-width: 60%;
+          &__content {
+            width: fit-content;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.5rem;
+          }
+          &__role {
+            display: block;
+            font-weight: 700;
+            color: $primary-color;
+            margin-top: 0.5rem;
+          }
+          &--user {
+            align-self: flex-end;
+            .message__content {
+              background-color: $primary-color;
+              color: $background;
+              align-self: flex-end;
+            }
+            .message__role {
+              text-align: right;
+            }
+          }
+          &--assistant {
+            .message__content {
+              background-color: rgb(234, 231, 231);
+            }
+          }
+        }
+      }
+      .chat__input {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        margin-bottom: 1rem;
+        #chat-input__form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          #user-input {
+            font-size: 1rem;
+            resize: none;
+            border: 2px $primary-color solid;
+            border-radius: 1rem;
+            width: 65%;
+            height: 75%;
+            min-height: 50%;
+            padding: 1rem;
+            transition: 0.3s;
+            &::placeholder {
+              font-style: italic;
+              color: grey;
+            }
+            &:focus {
+              outline: none;
+              font-style: normal;
+              color: black;
+              box-shadow: -5px 5px 0px 1px $primary-color;
+              -webkit-box-shadow: -5px 5px 0px 1px $primary-color;
+              -moz-box-shadow: -5px 5px 0px 1px $primary-color;
+              &::placeholder {
+                color: transparent;
+              }
+            }
+          }
         }
       }
     }
   }
-  .chat__window{
-    border: 2px solid #13aa65;
-  border-radius: 1rem;
-  margin: 1rem;
-  padding: 1rem;
-  overflow-y: auto;
-  .message{
-    &__role{
-      font-weight: 700;
-    }
-  }
-  }
-    .chat__input{
-      display: flex;
-      height: 100%;
-      width: 100%;
-      margin-bottom: 1rem;
-      #chat-input__form{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        #user-input{
-          font-size: 1rem;
-          resize: none;
-        border: 2px $primary-color solid;
-        border-radius: 1rem;
-        width: 50%;
-        height: 75%;
-        min-height: 50%;
-        padding: 1rem;
-        transition: 0.3s;
-          &::placeholder{
-            font-style: italic;
-            color: grey;
-          }
-          &:focus{
-            outline: none;
-            font-style: normal;
-            color: black;
-            box-shadow: -5px 5px 0px 1px $primary-color;
--webkit-box-shadow: -5px 5px 0px 1px $primary-color;
--moz-box-shadow: -5px 5px 0px 1px $primary-color;
-            &::placeholder{
-              color: transparent;
-            }
-          }
-      }
-      }
-    }
-  }
-  }
 
-
-
-
-  .footer-container{
+  .footer-container {
     margin-top: 1rem;
-  padding: 1.5rem 0;
-  grid-row: 3/4;
-  grid-column: 1/4;
-  background-color: $primary-color;
-  display: flex;
-  flex-direction: column;
-  gap: .5rem;
-  justify-content: center;
-  align-items: center;
+    padding: 1.5rem 0;
+    grid-row: 3/4;
+    grid-column: 1/4;
+    background-color: $primary-color;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
 
-    > *, a{
+    > *,
+    a {
       font-weight: 400;
       color: white;
       text-align: center;
     }
-    a:hover{
+    a:hover {
       color: $secondary-color;
     }
   }
